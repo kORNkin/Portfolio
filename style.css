@@ -1,0 +1,105 @@
+/* Reset and base styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+/* Navbar styles */
+.navBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0076EC;
+}
+
+.menu-toggle {
+  font-size: 2.5rem;
+  color: #0076EC;
+  cursor: pointer;
+  display: none;
+  z-index: 1001;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #0076EC;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid #0076EC;
+  border-radius: 50px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #0076EC;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    flex-direction: column;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+ .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links li a {
+    width: 100%;
+    text-align: right;
+  }
+}
